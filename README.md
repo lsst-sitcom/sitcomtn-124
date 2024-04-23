@@ -1,7 +1,7 @@
 [![Website](https://img.shields.io/badge/sitcomtn--124-lsst.io-brightgreen.svg)](https://sitcomtn-124.lsst.io)
 [![CI](https://github.com/lsst-sitcom/sitcomtn-124/actions/workflows/ci.yaml/badge.svg)](https://github.com/lsst-sitcom/sitcomtn-124/actions/workflows/ci.yaml)
 
-# Examples of analysis tools and metrics available for ops rehearsal 3
+# Metrics and Plots Available in Operations Rehearsal 3
 
 ## SITCOMTN-124
 
