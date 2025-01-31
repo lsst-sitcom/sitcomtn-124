@@ -367,7 +367,7 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 ||{ref}`propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot>`| Plot|
 |||
 
-Task (link to pipeline yaml) | datasetType | StorageClass |
+<!-- Task (link to pipeline yaml) | datasetType | StorageClass |
 |---   |---   |---   |
 | [analyzeDiaSourceTableTract](https://github.com/lsst/analysis_tools/blob/w.2024.14/pipelines/diaTractQualityCore.yaml)|[diaSourceTableTract_metrics](#diasourcetabletract_metrics)| MetricMeasurementBundle|
 ||{ref}`diasourcetabletract-streakdiasourceplot-diaskyplot <diasourcetabletract-streakdiasourceplot-diaskyplot>`| Plot|
@@ -408,7 +408,7 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-epoch-min-propertymapplot <propertymaptract-healsparsemap-deepcoadd-epoch-min-propertymapplot>`| Plot|
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-epoch-max-propertymapplot <propertymaptract-healsparsemap-deepcoadd-epoch-max-propertymapplot>`| Plot|
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-sky-background-weighted-mean-propertymapplot <propertymaptract-healsparsemap-deepcoadd-sky-background-weighted-mean-propertymapplot>`| Plot|
-|||
+||| -->
 
 
 ## Visit-level metrics
