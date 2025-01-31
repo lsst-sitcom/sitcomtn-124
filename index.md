@@ -852,93 +852,167 @@ _dataId used in examples:_
 did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
-metricBundle: **blendMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/deblenderMetric.py))
+metricBundle: **blendMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/deblenderMetric.py))
 
-_Docstring:_ Calculate metrics based on the performance of the deblender for blends with multiple children
+_Docstring:_ Calculate metrics based on the performance of the deblender for blends with multiple children 
 
 | metric name | value | units |
 | ---  |--- |--- |
-| numBlends | 54537.000000 |  |
-| meanBlendIterations | 16.765004 |  |
-| meanBlendLogL | -8419.284180 |  |
+| numBlends | 46065.000000 |  |
+| meanBlendIterations | 16.823771 |  |
+| meanBlendLogL | -1053145.375000 |  |
 
-metricBundle: **e1Diff** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/shapes.py))
+metricBundle: **coaddInputCount** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/coaddInputCount.py))
 
-_Docstring:_ No docstring
+_Docstring:_ skyPlot and associated metrics indicating the number of exposures that have gone into creating a coadd. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_inputCount_median | 5.0 | ct |
+| u_inputCount_sigmaMad | 4.4 | ct |
+| u_inputCount_mean | 5.9 | ct |
+| g_inputCount_median | 109.0 | ct |
+| g_inputCount_sigmaMad | 89.0 | ct |
+| g_inputCount_mean | 102.1 | ct |
+| r_inputCount_median | 130.0 | ct |
+| r_inputCount_sigmaMad | 100.8 | ct |
+| r_inputCount_mean | 120.0 | ct |
+| i_inputCount_median | 85.0 | ct |
+| i_inputCount_sigmaMad | 72.6 | ct |
+| i_inputCount_mean | 83.2 | ct |
+| z_inputCount_median | 95.0 | ct |
+| z_inputCount_sigmaMad | 69.7 | ct |
+| z_inputCount_mean | 88.0 | ct |
+| y_inputCount_median | 17.0 | ct |
+| y_inputCount_sigmaMad | 10.4 | ct |
+| y_inputCount_mean | 15.6 | ct |
+
+metricBundle: **coaddPatchCount** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/counts.py))
+
+_Docstring:_ An atool to count the patches in a tract. Counts the patches that make it into the objectTable_tract. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_patchCount | 30.000000 |  |
+| g_patchCount | 47.000000 |  |
+| r_patchCount | 46.000000 |  |
+| i_patchCount | 47.000000 |  |
+| z_patchCount | 45.000000 |  |
+| y_patchCount | 40.000000 |  |
+
+metricBundle: **e1Diff** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/shapes.py))
+
+_Docstring:_ The difference between E1 and E1 PSF plotted on a scatter plot. Used in coaddQualityCore. 
 
 _Notes:_ Statistics of residual of `e1` ellipticity measurement of sources relative to the PSF.
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_highSNStars_median | -0.002205 | pix |
-| g_highSNStars_sigmaMad | 0.002918 | pix |
-| g_highSNStars_count | 295.0 | ct |
-| g_lowSNStars_median | -0.001460 | pix |
-| g_lowSNStars_sigmaMad | 0.004919 | pix |
-| g_lowSNStars_count | 1512.0 | ct |
-| r_highSNStars_median | 0.000087 | pix |
-| r_highSNStars_sigmaMad | 0.001245 | pix |
-| r_highSNStars_count | 351.0 | ct |
-| r_lowSNStars_median | 0.000110 | pix |
-| r_lowSNStars_sigmaMad | 0.002334 | pix |
-| r_lowSNStars_count | 1827.0 | ct |
-| i_highSNStars_median | 0.000113 | pix |
-| i_highSNStars_sigmaMad | 0.001424 | pix |
-| i_highSNStars_count | 319.0 | ct |
-| i_lowSNStars_median | 0.000138 | pix |
-| i_lowSNStars_sigmaMad | 0.002367 | pix |
-| i_lowSNStars_count | 1835.0 | ct |
+| u_highSNStars_median | -0.006962 | pix |
+| u_highSNStars_sigmaMad | 0.012748 | pix |
+| u_highSNStars_count | 7.0 | ct |
+| u_lowSNStars_median | 0.000510 | pix |
+| u_lowSNStars_sigmaMad | 0.006357 | pix |
+| u_lowSNStars_count | 137.0 | ct |
+| g_highSNStars_median | 0.001289 | pix |
+| g_highSNStars_sigmaMad | 0.003274 | pix |
+| g_highSNStars_count | 458.0 | ct |
+| g_lowSNStars_median | 0.000393 | pix |
+| g_lowSNStars_sigmaMad | 0.004051 | pix |
+| g_lowSNStars_count | 1522.0 | ct |
+| r_highSNStars_median | 0.000526 | pix |
+| r_highSNStars_sigmaMad | 0.001800 | pix |
+| r_highSNStars_count | 638.0 | ct |
+| r_lowSNStars_median | 0.000351 | pix |
+| r_lowSNStars_sigmaMad | 0.002744 | pix |
+| r_lowSNStars_count | 1954.0 | ct |
+| i_highSNStars_median | 0.000453 | pix |
+| i_highSNStars_sigmaMad | 0.001744 | pix |
+| i_highSNStars_count | 680.0 | ct |
+| i_lowSNStars_median | 0.000210 | pix |
+| i_lowSNStars_sigmaMad | 0.002965 | pix |
+| i_lowSNStars_count | 2218.0 | ct |
+| z_highSNStars_median | -0.000107 | pix |
+| z_highSNStars_sigmaMad | 0.002300 | pix |
+| z_highSNStars_count | 610.0 | ct |
+| z_lowSNStars_median | -0.000013 | pix |
+| z_lowSNStars_sigmaMad | 0.003097 | pix |
+| z_lowSNStars_count | 1917.0 | ct |
+| y_highSNStars_median | 0.000569 | pix |
+| y_highSNStars_sigmaMad | 0.002821 | pix |
+| y_highSNStars_count | 102.0 | ct |
+| y_lowSNStars_median | 0.000041 | pix |
+| y_lowSNStars_sigmaMad | 0.003921 | pix |
+| y_lowSNStars_count | 772.0 | ct |
 
-metricBundle: **e2Diff** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/shapes.py))
+metricBundle: **e2Diff** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/shapes.py))
 
-_Docstring:_ No docstring
+_Docstring:_ The difference between E2 and E2 PSF plotted on a scatter plot for coadd level data. Used in coaddQualityCore. 
 
 _Notes:_ Statistics of residual of `e2` ellipticity measurement of sources relative to the PSF.
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_highSNStars_median | -0.001331 | pix |
-| g_highSNStars_sigmaMad | 0.002531 | pix |
-| g_highSNStars_count | 295.0 | ct |
-| g_lowSNStars_median | -0.000700 | pix |
-| g_lowSNStars_sigmaMad | 0.004103 | pix |
-| g_lowSNStars_count | 1512.0 | ct |
-| r_highSNStars_median | -0.000157 | pix |
-| r_highSNStars_sigmaMad | 0.001335 | pix |
-| r_highSNStars_count | 351.0 | ct |
-| r_lowSNStars_median | -0.000051 | pix |
-| r_lowSNStars_sigmaMad | 0.002267 | pix |
-| r_lowSNStars_count | 1827.0 | ct |
-| i_highSNStars_median | -0.000034 | pix |
-| i_highSNStars_sigmaMad | 0.001283 | pix |
-| i_highSNStars_count | 319.0 | ct |
-| i_lowSNStars_median | 0.000015 | pix |
-| i_lowSNStars_sigmaMad | 0.002503 | pix |
-| i_lowSNStars_count | 1835.0 | ct |
+| u_highSNStars_median | -0.007902 | pix |
+| u_highSNStars_sigmaMad | 0.011632 | pix |
+| u_highSNStars_count | 7.0 | ct |
+| u_lowSNStars_median | 0.000784 | pix |
+| u_lowSNStars_sigmaMad | 0.005373 | pix |
+| u_lowSNStars_count | 137.0 | ct |
+| g_highSNStars_median | 0.000637 | pix |
+| g_highSNStars_sigmaMad | 0.002228 | pix |
+| g_highSNStars_count | 458.0 | ct |
+| g_lowSNStars_median | 0.000124 | pix |
+| g_lowSNStars_sigmaMad | 0.003238 | pix |
+| g_lowSNStars_count | 1522.0 | ct |
+| r_highSNStars_median | 0.000508 | pix |
+| r_highSNStars_sigmaMad | 0.001917 | pix |
+| r_highSNStars_count | 638.0 | ct |
+| r_lowSNStars_median | 0.000388 | pix |
+| r_lowSNStars_sigmaMad | 0.002888 | pix |
+| r_lowSNStars_count | 1954.0 | ct |
+| i_highSNStars_median | 0.000883 | pix |
+| i_highSNStars_sigmaMad | 0.002213 | pix |
+| i_highSNStars_count | 680.0 | ct |
+| i_lowSNStars_median | 0.000855 | pix |
+| i_lowSNStars_sigmaMad | 0.003093 | pix |
+| i_lowSNStars_count | 2218.0 | ct |
+| z_highSNStars_median | -0.000148 | pix |
+| z_highSNStars_sigmaMad | 0.001759 | pix |
+| z_highSNStars_count | 610.0 | ct |
+| z_lowSNStars_median | -0.000071 | pix |
+| z_lowSNStars_sigmaMad | 0.002598 | pix |
+| z_lowSNStars_count | 1917.0 | ct |
+| y_highSNStars_median | -0.000236 | pix |
+| y_highSNStars_sigmaMad | 0.002834 | pix |
+| y_highSNStars_count | 102.0 | ct |
+| y_lowSNStars_median | -0.000439 | pix |
+| y_lowSNStars_sigmaMad | 0.003815 | pix |
+| y_lowSNStars_count | 772.0 | ct |
 
-metricBundle: **isolatedDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/deblenderMetric.py))
+metricBundle: **isolatedDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/deblenderMetric.py))
 
-_Docstring:_ Calculate metrics based on the performance of the deblender for parents with only a single child peak.
+_Docstring:_ Calculate metrics based on the performance of the deblender for parents with only a single child peak. 
 
 | metric name | value | units |
 | ---  |--- |--- |
-| numIsolated | 161369.000000 |  |
-| meanIsolatedIterations | 16.086714 |  |
-| meanIsolatedLogL | -232.709503 |  |
+| numIsolated | 67992.000000 |  |
+| meanIsolatedIterations | 16.082113 |  |
+| meanIsolatedLogL | -677.472961 |  |
 
-metricBundle: **parentDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/deblenderMetric.py))
+metricBundle: **parentDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/deblenderMetric.py))
 
 _Docstring:_ Calculate metrics based on the performance of the deblender
 
 | metric name | value | units |
 | ---  |--- |--- |
-| numParents | 215916.000000 |  |
-| numDeblendFailed | 8.000000 |  |
-| numIncompleteData | 23955.000000 |  |
-| numDetectedPeaks | 331274.000000 |  |
-| numDeblendedChildren | 331121.000000 |  |
+| numParents | 114061.000000 |  |
+| numDeblendFailed | 0.000000 |  |
+| numIncompleteData | 45524.000000 |  |
+| numDetectedPeaks | 363411.000000 |  |
+| numDeblendedChildren | 359466.000000 |  |
 
-metricBundle: **psfCModelScatter** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/photometry.py))
+metricBundle: **psfCModelScatter** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometry.py))
 
 _Docstring:_ Creates a scatterPlot showing the difference between PSF and CModel mags
 
@@ -946,75 +1020,114 @@ _Notes:_ Metrics give summary statistics of the `PSF-cmodel` magnitudes.
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_psf_cModel_diff_median | -1.953607 | mmag |
-| g_psf_cModel_diff_sigmaMad | 2.120985 | mmag |
-| g_psf_cModel_diff_mean | -1.179624 | mmag |
-| r_psf_cModel_diff_median | -0.799037 | mmag |
-| r_psf_cModel_diff_sigmaMad | 1.698413 | mmag |
-| r_psf_cModel_diff_mean | 0.120015 | mmag |
-| i_psf_cModel_diff_median | -0.566337 | mmag |
-| i_psf_cModel_diff_sigmaMad | 1.800549 | mmag |
-| i_psf_cModel_diff_mean | -0.033813 | mmag |
+| u_psf_cModel_diff_median | 1.062645 | mmag |
+| u_psf_cModel_diff_sigmaMad | 4.325282 | mmag |
+| u_psf_cModel_diff_mean | 10.745125 | mmag |
+| g_psf_cModel_diff_median | -2.305251 | mmag |
+| g_psf_cModel_diff_sigmaMad | 2.320611 | mmag |
+| g_psf_cModel_diff_mean | -1.821309 | mmag |
+| r_psf_cModel_diff_median | -1.147710 | mmag |
+| r_psf_cModel_diff_sigmaMad | 2.572899 | mmag |
+| r_psf_cModel_diff_mean | -0.521258 | mmag |
+| i_psf_cModel_diff_median | -0.576176 | mmag |
+| i_psf_cModel_diff_sigmaMad | 2.773069 | mmag |
+| i_psf_cModel_diff_mean | -0.551983 | mmag |
+| z_psf_cModel_diff_median | -1.466141 | mmag |
+| z_psf_cModel_diff_sigmaMad | 2.297925 | mmag |
+| z_psf_cModel_diff_mean | -1.435888 | mmag |
+| y_psf_cModel_diff_median | -2.427449 | mmag |
+| y_psf_cModel_diff_sigmaMad | 2.106005 | mmag |
+| y_psf_cModel_diff_mean | -1.936034 | mmag |
 
-metricBundle: **shapeSizeFractionalDiff** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/shapes.py))
+metricBundle: **shapeSizeFractionalDiff** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/shapes.py))
 
-_Docstring:_ No docstring
+_Docstring:_ The difference between shape and shape PSF plotted on a scatter plot for coadd level data. Used in coaddQualityCore. 
 
 _Notes:_ Fractional size residuals ($S/S_{PSF} - 1$). Stars with "highSN" have S/N > 2700, and "lowSN" have S/N > 500.
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_highSNStars_median | 0.003467 | pix |
-| g_highSNStars_sigmaMad | 0.004422 | pix |
-| g_highSNStars_count | 295.0 | ct |
-| g_lowSNStars_median | 0.003165 | pix |
-| g_lowSNStars_sigmaMad | 0.006352 | pix |
-| g_lowSNStars_count | 1512.0 | ct |
-| r_highSNStars_median | 0.000477 | pix |
-| r_highSNStars_sigmaMad | 0.001387 | pix |
-| r_highSNStars_count | 351.0 | ct |
-| r_lowSNStars_median | 0.000496 | pix |
-| r_lowSNStars_sigmaMad | 0.002080 | pix |
-| r_lowSNStars_count | 1827.0 | ct |
-| i_highSNStars_median | 0.000747 | pix |
-| i_highSNStars_sigmaMad | 0.001530 | pix |
-| i_highSNStars_count | 319.0 | ct |
-| i_lowSNStars_median | 0.000921 | pix |
-| i_lowSNStars_sigmaMad | 0.002236 | pix |
-| i_lowSNStars_count | 1835.0 | ct |
+| u_highSNStars_median | -0.018624 | pix |
+| u_highSNStars_sigmaMad | 0.028057 | pix |
+| u_highSNStars_count | 7.0 | ct |
+| u_lowSNStars_median | -0.001748 | pix |
+| u_lowSNStars_sigmaMad | 0.006542 | pix |
+| u_lowSNStars_count | 137.0 | ct |
+| g_highSNStars_median | 0.000799 | pix |
+| g_highSNStars_sigmaMad | 0.005744 | pix |
+| g_highSNStars_count | 458.0 | ct |
+| g_lowSNStars_median | 0.000275 | pix |
+| g_lowSNStars_sigmaMad | 0.006641 | pix |
+| g_lowSNStars_count | 1522.0 | ct |
+| r_highSNStars_median | -0.000390 | pix |
+| r_highSNStars_sigmaMad | 0.003146 | pix |
+| r_highSNStars_count | 638.0 | ct |
+| r_lowSNStars_median | 0.000291 | pix |
+| r_lowSNStars_sigmaMad | 0.003772 | pix |
+| r_lowSNStars_count | 1954.0 | ct |
+| i_highSNStars_median | -0.001118 | pix |
+| i_highSNStars_sigmaMad | 0.003354 | pix |
+| i_highSNStars_count | 680.0 | ct |
+| i_lowSNStars_median | -0.000326 | pix |
+| i_lowSNStars_sigmaMad | 0.003610 | pix |
+| i_lowSNStars_count | 2218.0 | ct |
+| z_highSNStars_median | -0.000394 | pix |
+| z_highSNStars_sigmaMad | 0.003151 | pix |
+| z_highSNStars_count | 610.0 | ct |
+| z_lowSNStars_median | 0.000573 | pix |
+| z_lowSNStars_sigmaMad | 0.003387 | pix |
+| z_lowSNStars_count | 1917.0 | ct |
+| y_highSNStars_median | -0.004150 | pix |
+| y_highSNStars_sigmaMad | 0.004891 | pix |
+| y_highSNStars_count | 102.0 | ct |
+| y_lowSNStars_median | -0.000406 | pix |
+| y_lowSNStars_sigmaMad | 0.003624 | pix |
+| y_lowSNStars_count | 772.0 | ct |
 
-metricBundle: **skippedDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/deblenderMetric.py))
+metricBundle: **skippedDeblenderMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/deblenderMetric.py))
 
 _Docstring:_ Calculate metrics based on blends skipped by the deblender
 
 | metric name | value | units |
 | ---  |--- |--- |
-| numSkippedBlends | 2.000000 |  |
-| numBlendParentTooBig | 2.000000 |  |
+| numSkippedBlends | 4.000000 |  |
+| numBlendParentTooBig | 4.000000 |  |
 | numBlendTooManyPeaks | 0.000000 |  |
 | numBlendTooManyMasked | 0.000000 |  |
-| numSkippedPeaks | 145.000000 |  |
+| numSkippedPeaks | 3945.000000 |  |
 
-metricBundle: **skyFluxStatisticMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/skyFluxStatisticMetrics.py))
+metricBundle: **skyFluxStatisticMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/skyFluxStatisticMetrics.py))
 
-_Docstring:_ Calculate sky flux statistics. This uses the 9-pixel aperture flux for sky sources/objects, and returns multiple statistics on the measured fluxes. Note that either visitContext (measurement on sourceTable) or coaddContext (measurement on objectTable) must be specified.
+_Docstring:_ Calculate sky flux statistics. This uses the 9-pixel aperture flux for sky sources/objects, and returns multiple statistics on the measured fluxes. Note that either visitContext (measurement on sourceTable) or coaddContext (measurement on objectTable) must be specified. 
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_medianSky | -1.353270 | nJy |
-| g_meanSky | 0.828698 | nJy |
-| g_stdevSky | 148.568045 | nJy |
-| g_sigmaMADSky | 97.669588 | nJy |
-| r_medianSky | -5.492619 | nJy |
-| r_meanSky | -1.941782 | nJy |
-| r_stdevSky | 203.472885 | nJy |
-| r_sigmaMADSky | 138.705877 | nJy |
-| i_medianSky | -9.055690 | nJy |
-| i_meanSky | -5.286348 | nJy |
-| i_stdevSky | 300.578227 | nJy |
-| i_sigmaMADSky | 211.787172 | nJy |
+| u_medianSky | -22.670816 | nJy |
+| u_meanSky | -44.955825 | nJy |
+| u_stdevSky | 458.312329 | nJy |
+| u_sigmaMADSky | 358.909370 | nJy |
+| g_medianSky | 2.320502 | nJy |
+| g_meanSky | 5.908797 | nJy |
+| g_stdevSky | 122.467253 | nJy |
+| g_sigmaMADSky | 65.140802 | nJy |
+| r_medianSky | -0.373212 | nJy |
+| r_meanSky | 2.401479 | nJy |
+| r_stdevSky | 217.256946 | nJy |
+| r_sigmaMADSky | 89.284979 | nJy |
+| i_medianSky | -9.153765 | nJy |
+| i_meanSky | -8.731332 | nJy |
+| i_stdevSky | 225.413986 | nJy |
+| i_sigmaMADSky | 132.290373 | nJy |
+| z_medianSky | -38.847815 | nJy |
+| z_meanSky | -37.734689 | nJy |
+| z_stdevSky | 468.570872 | nJy |
+| z_sigmaMADSky | 234.272551 | nJy |
+| y_medianSky | -178.689968 | nJy |
+| y_meanSky | -230.084323 | nJy |
+| y_stdevSky | 1662.990931 | nJy |
+| y_sigmaMADSky | 1127.054293 | nJy |
 
-metricBundle: **wPerpCModel** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/stellarLocus.py))
+metricBundle: **wPerpCModel** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
 
 _Docstring:_ No docstring
 
@@ -1022,10 +1135,10 @@ _Notes:_ Width of stellar locus in (r-i) vs. (g-r) as defined in [Ivezic et al. 
 
 | metric name | value | units |
 | ---  |--- |--- |
-| wPerp_cModelFlux_sigmaMAD | 10.225373 | mmag |
-| wPerp_cModelFlux_median | -0.565891 | mmag |
+| wPerp_cModelFlux_sigmaMAD | 14.941928 | mmag |
+| wPerp_cModelFlux_median | 0.408690 | mmag |
 
-metricBundle: **wPerpPSFP** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/stellarLocus.py))
+metricBundle: **wPerpPSFP** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
 
 _Docstring:_ No docstring
 
@@ -1033,23 +1146,21 @@ _Notes:_ Width of the blue portion of the stellar locus in (r-i) vs. (g-r) as de
 
 | metric name | value | units |
 | ---  |--- |--- |
-| wPerp_psfFlux_sigmaMAD | 10.580971 | mmag |
-| wPerp_psfFlux_median | -0.496211 | mmag |
+| wPerp_psfFlux_sigmaMAD | 14.965038 | mmag |
+| wPerp_psfFlux_median | 0.354766 | mmag |
 
-metricBundle: **xPerpCModel** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/stellarLocus.py))
+metricBundle: **xPerpCModel** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
 
 _Docstring:_ No docstring
 
 _Notes:_ Width of the red portion of the stellar locus in (r-i) vs. (g-r) as defined in [Ivezic et al. 2004](https://ui.adsabs.harvard.edu/abs/2004AN....325..583I/abstract), measured with `cmodel` magnitudes.
 
-_Notes:_ Width of the blue portion of the stellar locus in (r-i) vs. (g-r) as defined in [Ivezic et al. 2004](https://ui.adsabs.harvard.edu/abs/2004AN....325..583I/abstract), measured with PSF magnitudes.
-
 | metric name | value | units |
 | ---  |--- |--- |
-| xPerp_cModelFlux_sigmaMAD | 13.572956 | mmag |
-| xPerp_cModelFlux_median | -0.158474 | mmag |
+| xPerp_cModelFlux_sigmaMAD | 56.216178 | mmag |
+| xPerp_cModelFlux_median | 1.497274 | mmag |
 
-metricBundle: **xPerpPSFP** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/stellarLocus.py))
+metricBundle: **xPerpPSFP** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
 
 _Docstring:_ No docstring
 
@@ -1057,10 +1168,29 @@ _Notes:_ Width of the red portion of the stellar locus in (r-i) vs. (g-r) as def
 
 | metric name | value | units |
 | ---  |--- |--- |
-| xPerp_psfFlux_sigmaMAD | 14.075556 | mmag |
-| xPerp_psfFlux_median | 0.286494 | mmag |
+| xPerp_psfFlux_sigmaMAD | 55.733773 | mmag |
+| xPerp_psfFlux_median | 0.950084 | mmag |
 
-Note the erroneous "P" at the end of "wPerpPSFP" and "xPerpPSFP". This is due to a typo in the pipelines code.
+metricBundle: **yPerpCModel** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
+
+_Docstring:_ No docstring
+
+| metric name | value | units |
+| ---  |--- |--- |
+| yPerp_cModelFlux_sigmaMAD | 9.130749 | mmag |
+| yPerp_cModelFlux_median | -0.721818 | mmag |
+
+metricBundle: **yPerpPSF** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/stellarLocus.py))
+
+_Docstring:_ No docstring
+
+| metric name | value | units |
+| ---  |--- |--- |
+| yPerp_psfFlux_sigmaMAD | 8.156364 | mmag |
+| yPerp_psfFlux_median | -0.542668 | mmag |
+
+Note the erroneous "P" at the end of "wPerpPSFP," "xPerpPSFP," and "yPerpPSFP." This is due to a typo in the pipelines code.
+
 
 ### objectTableExtended_metrics
 
