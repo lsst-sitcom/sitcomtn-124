@@ -35,7 +35,7 @@ The code used to generate the plots and figures for this technote can be found i
 In this section we describe the ways we determined which metrics and plots were created by the nightly validation pipeline.
 
 ### Which collections to use
-The data reduction campaigns are listed in [the ``LSSTComCam Intermittent Cumulative DRP Runs'' confluence page](https://rubinobs.atlassian.net/wiki/x/YoCCDQ). On that page we can see the following information for the collection containing the w_2025_04 **intermittent cumulative DRP** reductions:
+The data reduction campaigns are listed in [the "LSSTComCam Intermittent Cumulative DRP Runs" confluence page](https://rubinobs.atlassian.net/wiki/x/YoCCDQ). On that page we can see the following information for the collection containing the w_2025_04 **intermittent cumulative DRP** reductions:
 
 ```
 repo = /repo/main
@@ -69,7 +69,7 @@ DatasetType('objectTableExtended_r_ap12PsfSky_SkyPlot', {skymap, tract}, Plot)
 This query compiles a list of `datasetType` objects, which include the butler dimensions necessary to retrieve the dataset (the items included within the curly braces above; for example, to retrieve `matchedVisitCore_metrics` from the butler, one would need to specify the desired `instrument`, `skymap`, and `tract` in the dataId passed to the butler). An example of how to retrieve one of these:
 
 ```
-did_tract = {'tract':5063, 'skymap':'lsst_cells_v1', 'instrument':'LSSTComCam'}
+did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 
 matchedVisitCoreMetrics = butler.get('matchedVisitCore_metrics', dataId=did_tract, collections=collection)
 ```
@@ -525,6 +525,209 @@ These metrics are for a set of "matched visits," which is created by taking all 
 
 Note that although these metrics use information from individual visits, their Butler dimension is `tract` because they aggregate measurements from all visits contributing to a tract.
 
+metricBundle: **stellarAstrometricRepeatability1** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
+
+_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_AM1 | 16.649138 | mas |
+| u_AF1 | 22.201517 | % |
+| u_AD1 | 28.129798 | mas |
+| g_AM1 | 15.628324 | mas |
+| g_AF1 | 24.470774 | % |
+| g_AD1 | 30.426507 | mas |
+| r_AM1 | 13.416911 | mas |
+| r_AF1 | 13.611736 | % |
+| r_AD1 | 22.404970 | mas |
+| i_AM1 | 12.607847 | mas |
+| i_AF1 | 11.067706 | % |
+| i_AD1 | 20.722490 | mas |
+| z_AM1 | 12.461857 | mas |
+| z_AF1 | 11.519684 | % |
+| z_AD1 | 21.046111 | mas |
+| y_AM1 | 12.761201 | mas |
+| y_AF1 | 12.620278 | % |
+| y_AD1 | 21.692446 | mas |
+
+metricBundle: **stellarAstrometricRepeatability2** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
+
+_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_AM2 | 15.659163 | mas |
+| u_AF2 | 20.873564 | % |
+| u_AD2 | 27.267193 | mas |
+| g_AM2 | 14.838544 | mas |
+| g_AF2 | 23.823734 | % |
+| g_AD2 | 30.171673 | mas |
+| r_AM2 | 12.428093 | mas |
+| r_AF2 | 11.682237 | % |
+| r_AD2 | 21.131835 | mas |
+| i_AM2 | 11.615206 | mas |
+| i_AF2 | 9.139840 | % |
+| i_AD2 | 19.391778 | mas |
+| z_AM2 | 11.338962 | mas |
+| z_AF2 | 9.349920 | % |
+| z_AD2 | 19.546127 | mas |
+| y_AM2 | 11.638790 | mas |
+| y_AF2 | 10.039435 | % |
+| y_AD2 | 20.025457 | mas |
+
+metricBundle: **stellarAstrometricRepeatability3** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
+
+_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_AM3 | nan | mas |
+| u_AF3 | nan | % |
+| u_AD3 | nan | mas |
+| g_AM3 | nan | mas |
+| g_AF3 | nan | % |
+| g_AD3 | nan | mas |
+| r_AM3 | nan | mas |
+| r_AF3 | nan | % |
+| r_AD3 | nan | mas |
+| i_AM3 | nan | mas |
+| i_AF3 | nan | % |
+| i_AD3 | nan | mas |
+| z_AM3 | nan | mas |
+| z_AF3 | nan | % |
+| z_AD3 | nan | mas |
+| y_AM3 | nan | mas |
+| y_AF3 | nan | % |
+| y_AD3 | nan | mas |
+
+metricBundle: **stellarAstrometricSelfRepeatabilityDec** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
+
+_Docstring:_ Calculate the median position RMS of point sources.
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_dmL2AstroErr_Dec | 15.141275 | mas |
+| g_dmL2AstroErr_Dec | 9.422350 | mas |
+| r_dmL2AstroErr_Dec | 9.224946 | mas |
+| i_dmL2AstroErr_Dec | 8.756453 | mas |
+| z_dmL2AstroErr_Dec | 10.908766 | mas |
+| y_dmL2AstroErr_Dec | 10.780756 | mas |
+
+metricBundle: **stellarAstrometricSelfRepeatabilityRA** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
+
+_Docstring:_ Calculate the median position RMS of point sources.
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_dmL2AstroErr_RA | 16.201780 | mas |
+| g_dmL2AstroErr_RA | 15.396698 | mas |
+| r_dmL2AstroErr_RA | 10.670404 | mas |
+| i_dmL2AstroErr_RA | 10.214307 | mas |
+| z_dmL2AstroErr_RA | 11.032055 | mas |
+| y_dmL2AstroErr_RA | 11.842188 | mas |
+
+metricBundle: **stellarPhotometricRepeatability** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometricRepeatability.py))
+
+_Docstring:_ Compute photometric repeatability from multiple measurements of a set of stars. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and per-group quantities are computed (e.g., a representative S/N for the group based on the median of associated per-source measurements). Third, additional per-group criteria are applied. Fourth, summary statistics are computed for the filtered groups. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_stellarPhotRepeatStdev | 10.082369 | mmag |
+| u_stellarPhotRepeatOutlierFraction | 8.125000 | % |
+| u_ct | 160.0 | ct |
+| g_stellarPhotRepeatStdev | 11.278285 | mmag |
+| g_stellarPhotRepeatOutlierFraction | 5.925926 | % |
+| g_ct | 540.0 | ct |
+| r_stellarPhotRepeatStdev | 9.653192 | mmag |
+| r_stellarPhotRepeatOutlierFraction | 7.682292 | % |
+| r_ct | 768.0 | ct |
+| i_stellarPhotRepeatStdev | 6.544506 | mmag |
+| i_stellarPhotRepeatOutlierFraction | 0.360144 | % |
+| i_ct | 833.0 | ct |
+| z_stellarPhotRepeatStdev | 7.944945 | mmag |
+| z_stellarPhotRepeatOutlierFraction | 1.505646 | % |
+| z_ct | 797.0 | ct |
+| y_stellarPhotRepeatStdev | 8.168943 | mmag |
+| y_stellarPhotRepeatOutlierFraction | 0.319489 | % |
+| y_ct | 313.0 | ct |
+
+metricBundle: **stellarPhotometricRepeatabilityCalib** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometricRepeatability.py))
+
+_Docstring:_ Compute photometric repeatability from multiple measurements of a set of stars. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and per-group quantities are computed (e.g., a representative S/N for the group based on the median of associated per-source measurements). Third, additional per-group criteria are applied. Fourth, summary statistics are computed for the filtered groups. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_stellarPhotRepeatStdev | 7.905896 | mmag |
+| u_stellarPhotRepeatOutlierFraction | 1.492537 | % |
+| u_ct | 134.0 | ct |
+| g_stellarPhotRepeatStdev | 9.951525 | mmag |
+| g_stellarPhotRepeatOutlierFraction | 5.023923 | % |
+| g_ct | 418.0 | ct |
+| r_stellarPhotRepeatStdev | 11.208904 | mmag |
+| r_stellarPhotRepeatOutlierFraction | 8.910891 | % |
+| r_ct | 505.0 | ct |
+| i_stellarPhotRepeatStdev | 3.709744 | mmag |
+| i_stellarPhotRepeatOutlierFraction | 0.000000 | % |
+| i_ct | 492.0 | ct |
+| z_stellarPhotRepeatStdev | 3.154263 | mmag |
+| z_stellarPhotRepeatOutlierFraction | 0.000000 | % |
+| z_ct | 423.0 | ct |
+| y_stellarPhotRepeatStdev | 6.970876 | mmag |
+| y_stellarPhotRepeatOutlierFraction | 0.000000 | % |
+| y_ct | 149.0 | ct |
+
+metricBundle: **stellarPhotometricResiduals** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometricRepeatability.py))
+
+_Docstring:_ Plot mean photometric residuals as a function of the position on the focal plane. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and the per-group magnitude is computed. The residuals between the individual sources and these magnitudes are then used to construct a plot showing the mean residual as a function of the focal-plane position. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_photResidTractSigmaMad | 7.106819 | mmag |
+| u_photResidTractStdev | 14.064299 | mmag |
+| u_photResidTractMedian | 0.000000 | mmag |
+| g_photResidTractSigmaMad | 8.182756 | mmag |
+| g_photResidTractStdev | 10.718751 | mmag |
+| g_photResidTractMedian | 0.000000 | mmag |
+| r_photResidTractSigmaMad | 5.673041 | mmag |
+| r_photResidTractStdev | 6.913324 | mmag |
+| r_photResidTractMedian | 0.000000 | mmag |
+| i_photResidTractSigmaMad | 5.870441 | mmag |
+| i_photResidTractStdev | 6.884908 | mmag |
+| i_photResidTractMedian | 0.000000 | mmag |
+| z_photResidTractSigmaMad | 5.960165 | mmag |
+| z_photResidTractStdev | 8.674804 | mmag |
+| z_photResidTractMedian | 0.000000 | mmag |
+| y_photResidTractSigmaMad | 7.328806 | mmag |
+| y_photResidTractStdev | 8.854357 | mmag |
+| y_photResidTractMedian | 0.000000 | mmag |
+
+metricBundle: **stellarPhotometricResidualsCalib** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometricRepeatability.py))
+
+_Docstring:_ Plot mean photometric residuals as a function of the position on the focal plane. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and the per-group magnitude is computed. The residuals between the individual sources and these magnitudes are then used to construct a plot showing the mean residual as a function of the focal-plane position. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_photResidTractSigmaMad | 6.159587 | mmag |
+| u_photResidTractStdev | 10.387054 | mmag |
+| u_photResidTractMedian | 0.000000 | mmag |
+| g_photResidTractSigmaMad | 7.016645 | mmag |
+| g_photResidTractStdev | 9.551593 | mmag |
+| g_photResidTractMedian | 0.000000 | mmag |
+| r_photResidTractSigmaMad | 4.761156 | mmag |
+| r_photResidTractStdev | 6.989406 | mmag |
+| r_photResidTractMedian | 0.000000 | mmag |
+| i_photResidTractSigmaMad | 5.027914 | mmag |
+| i_photResidTractStdev | 7.205964 | mmag |
+| i_photResidTractMedian | 0.000000 | mmag |
+| z_photResidTractSigmaMad | 4.924935 | mmag |
+| z_photResidTractStdev | 7.766163 | mmag |
+| z_photResidTractMedian | 0.000000 | mmag |
+| y_photResidTractSigmaMad | 7.862110 | mmag |
+| y_photResidTractStdev | 9.141854 | mmag |
+| y_photResidTractMedian | 0.000000 | mmag |
+
+OLD ENTRIES BELOW HERE!
+
 metricBundle: **stellarAstrometricRepeatability1** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
 
 _Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics.
@@ -648,7 +851,7 @@ _Notes:_ In addition to producing plots of the residuals as a function of focal 
 
 _dataId used in examples:_
 ```
-did_visit_det = {'visit':7024040300002, 'skymap':'ops_rehersal_prep_2k_v1', 'instrument':'LSSTComCamSim', 'detector':0}
+did_visit_det = {'visit': 2024120500075, 'skymap': 'lsst_cells_v1', 'instrument': 'LSSTComCam', 'detector': 4}
 ```
 
 metricBundle: **skyFluxVisitStatisticMetric** [source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/skyFluxStatisticMetrics.py)
@@ -671,7 +874,7 @@ Note that the default visit (7024040300001) used for this document did not have 
 
 _dataId used in examples:_
 ```
-did_tract = {'tract':9813, 'skymap': 'ops_rehersal_prep_2k_v1', 'band': 'g', 'instrument':'LSSTComCamSim'}
+did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
 metricBundle: **NumDiaSources** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/diaSourceTableTractMetrics.py))
@@ -702,7 +905,7 @@ _Docstring:_ Count DiaSources that fall in a STREAK flag footprint region.
 
 _dataId used in examples:_
 ```
-did_tract = {'tract':9813, 'skymap': 'ops_rehersal_prep_2k_v1', 'band': 'g', 'instrument':'LSSTComCamSim'}
+did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
 metricBundle: **validCmodelFluxMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/numericalValidity.py))
@@ -736,7 +939,7 @@ _Docstring:_ Calculate the fraction of values in a column that have valid numeri
 
 _dataId used in examples:_
 ```
-did_tract = {'tract':9813, 'skymap': 'ops_rehersal_prep_2k_v1', 'band': 'g', 'instrument':'LSSTComCamSim'}
+did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
 metricBundle: **blendMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/deblenderMetric.py))
@@ -953,7 +1156,7 @@ Note the erroneous "P" at the end of "wPerpPSFP" and "xPerpPSFP". This is due to
 
 _dataId used in examples:_
 ```
-did_tract = {'tract':9813, 'skymap': 'ops_rehersal_prep_2k_v1', 'band': 'g', 'instrument':'LSSTComCamSim'}
+did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
 metricBundle: **ap12PsfSky** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/photometry.py))
