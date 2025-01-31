@@ -529,6 +529,12 @@ metricBundle: **stellarAstrometricRepeatability1** ([source](https://github.com/
 
 _Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
 
+_Notes:_ AMx, ADx, and AFx (where x=[1, 2, 3]) are defined in the [Observatory System Specifications (OSS)](https://ls.st/oss) as requirement OSS-REQ-0388. AMx is a measure of astrometric repeatability on `xx` arcminute scales, where xx=[5, 20, 200] for x=[1, 2, 3]. ADx defines thresholds for outliers, and AFx captures the percentage of outliers exceeding the ADx outlier limit.
+
+Defined with signal-to-noise (S/N) cuts of 50 < S/N < 50000 and a magnitude range of 17 < mag < 21.5.
+
+stellarAstrometricRepeatability1 measures repeatability on 5 arcminute scales.
+
 | metric name | value | units |
 | ---  |--- |--- |
 | u_AM1 | 16.649138 | mas |
@@ -553,6 +559,8 @@ _Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the
 metricBundle: **stellarAstrometricRepeatability2** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
 
 _Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
+
+_Notes:_ stellarAstrometricRepeatability2 measures repeatability on 20 arcminute scales.
 
 | metric name | value | units |
 | ---  |--- |--- |
@@ -579,6 +587,8 @@ metricBundle: **stellarAstrometricRepeatability3** ([source](https://github.com/
 
 _Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics. 
 
+_Notes:_ stellarAstrometricRepeatability3 measures repeatability on 200 arcminute scales. There are no measurements for these metrics currently, because we do not have datasets spanning the requisite 200-arcminute scale.
+
 | metric name | value | units |
 | ---  |--- |--- |
 | u_AM3 | nan | mas |
@@ -604,6 +614,8 @@ metricBundle: **stellarAstrometricSelfRepeatabilityDec** ([source](https://githu
 
 _Docstring:_ Calculate the median position RMS of point sources.
 
+_Notes:_ The median of the per-source RMS positional scatter in Declination. Defined with a magnitude selection of 17 < mag < 21.5.
+
 | metric name | value | units |
 | ---  |--- |--- |
 | u_dmL2AstroErr_Dec | 15.141275 | mas |
@@ -617,6 +629,8 @@ metricBundle: **stellarAstrometricSelfRepeatabilityRA** ([source](https://github
 
 _Docstring:_ Calculate the median position RMS of point sources.
 
+_Notes:_ The median of the per-source RMS positional scatter in Right Ascension. Defined with a magnitude selection of 17 < mag < 21.5.
+
 | metric name | value | units |
 | ---  |--- |--- |
 | u_dmL2AstroErr_RA | 16.201780 | mas |
@@ -629,6 +643,8 @@ _Docstring:_ Calculate the median position RMS of point sources.
 metricBundle: **stellarPhotometricRepeatability** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/photometricRepeatability.py))
 
 _Docstring:_ Compute photometric repeatability from multiple measurements of a set of stars. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and per-group quantities are computed (e.g., a representative S/N for the group based on the median of associated per-source measurements). Third, additional per-group criteria are applied. Fourth, summary statistics are computed for the filtered groups. 
+
+_Notes:_ The median and outlier fraction of the per-source RMS magnitude scatter. Defined for stars with S/N > 200. Metrics with "stellarPhotRepeatStdev" in their names correspond to `PA1` defined in the [OSS](https://ls.st/oss) as requirement OSS-REQ-0387. Metrics with "stellarPhotRepeatOutlierFraction" correspond to `PF1` (the fraction of outliers exceeding the threshold PA2) from the same requirement, with `PA2` (the outlier threshold) set to 15 mmag by default. The "_ct" metrics simply capture the number of stars that went into the calculation.
 
 | metric name | value | units |
 | ---  |--- |--- |
@@ -680,6 +696,8 @@ metricBundle: **stellarPhotometricResiduals** ([source](https://github.com/lsst/
 
 _Docstring:_ Plot mean photometric residuals as a function of the position on the focal plane. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and the per-group magnitude is computed. The residuals between the individual sources and these magnitudes are then used to construct a plot showing the mean residual as a function of the focal-plane position. 
 
+_Notes:_ In addition to producing plots of the residuals as a function of focal plane position, the median, standard deviation ("Stdev"), and the median absolute deviation $\sigma_{MAD}$ ("SigmaMad") are reported for the tract. Because these are residuals about the median, the median residual should be 0 by construction.
+
 | metric name | value | units |
 | ---  |--- |--- |
 | u_photResidTractSigmaMad | 7.106819 | mmag |
@@ -725,126 +743,6 @@ _Docstring:_ Plot mean photometric residuals as a function of the position on th
 | y_photResidTractSigmaMad | 7.862110 | mmag |
 | y_photResidTractStdev | 9.141854 | mmag |
 | y_photResidTractMedian | 0.000000 | mmag |
-
-OLD ENTRIES BELOW HERE!
-
-metricBundle: **stellarAstrometricRepeatability1** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
-
-_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics.
-
-_Notes:_ AMx, ADx, and AFx (where x=[1, 2, 3]) are defined in the [Observatory System Specifications (OSS)](https://ls.st/oss) as requirement OSS-REQ-0388. AMx is a measure of astrometric repeatability on `xx` arcminute scales, where xx=[5, 20, 200] for x=[1, 2, 3]. ADx defines thresholds for outliers, and AFx captures the percentage of outliers exceeding the ADx outlier limit.
-
-Defined with signal-to-noise (S/N) cuts of 50 < S/N < 50000 and a magnitude range of 17 < mag < 21.5.
-
-stellarAstrometricRepeatability1 measures repeatability on 5 arcminute scales.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_AM1 | 11.372618 | mas |
-| g_AF1 | 9.814720 | % |
-| g_AD1 | 19.861856 | mas |
-| r_AM1 | 10.864433 | mas |
-| r_AF1 | 8.558647 | % |
-| r_AD1 | 18.849730 | mas |
-| i_AM1 | 10.225130 | mas |
-| i_AF1 | 7.298187 | % |
-| i_AD1 | 17.797588 | mas |
-
-metricBundle: **stellarAstrometricRepeatability2** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
-
-_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics.
-
-_Notes:_ stellarAstrometricRepeatability2 measures repeatability on 20 arcminute scales.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_AM2 | 10.659738 | mas |
-| g_AF2 | 8.527521 | % |
-| g_AD2 | 18.899353 | mas |
-| r_AM2 | 10.275115 | mas |
-| r_AF2 | 7.466236 | % |
-| r_AD2 | 17.986514 | mas |
-| i_AM2 | 9.798453 | mas |
-| i_AF2 | 6.640539 | % |
-| i_AD2 | 17.214238 | mas |
-
-metricBundle: **stellarAstrometricRepeatability3** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
-
-_Docstring:_ Calculate the AMx, ADx, AFx metrics and make histograms showing the data used to compute the metrics.
-
-_Notes:_ stellarAstrometricRepeatability3 measures repeatability on 200 arcminute scales. There are no measurements for these metrics currently, because we do not have datasets spanning the requisite 200-arcminute scale.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_AM3 | nan | mas |
-| g_AF3 | nan | % |
-| g_AD3 | nan | mas |
-| r_AM3 | nan | mas |
-| r_AF3 | nan | % |
-| r_AD3 | nan | mas |
-| i_AM3 | nan | mas |
-| i_AF3 | nan | % |
-| i_AD3 | nan | mas |
-
-metricBundle: **stellarAstrometricSelfRepeatabilityDec** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
-
-_Docstring:_ Calculate the median position RMS of point sources.
-
-_Notes:_ The median of the per-source RMS positional scatter in Declination. Defined with a magnitude selection of 17 < mag < 21.5.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_dmL2AstroErr_Dec | 6.699939 | mas |
-| r_dmL2AstroErr_Dec | 7.066788 | mas |
-| i_dmL2AstroErr_Dec | 7.651587 | mas |
-
-metricBundle: **stellarAstrometricSelfRepeatabilityRA** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/astrometricRepeatability.py))
-
-_Docstring:_ Calculate the median position RMS of point sources.
-
-_Notes:_ The median of the per-source RMS positional scatter in Right Ascension. Defined with a magnitude selection of 17 < mag < 21.5.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_dmL2AstroErr_RA | 8.582950 | mas |
-| r_dmL2AstroErr_RA | 7.482557 | mas |
-| i_dmL2AstroErr_RA | 7.975985 | mas |
-
-metricBundle: **stellarPhotometricRepeatability** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/photometricRepeatability.py))
-
-_Docstring:_ Compute photometric repeatability from multiple measurements of a set of stars. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and per-group quantities are computed (e.g., a representative S/N for the group based on the median of associated per-source measurements). Third, additional per-group criteria are applied. Fourth, summary statistics are computed for the filtered groups.
-
-_Notes:_ The median and outlier fraction of the per-source RMS magnitude scatter. Defined for stars with S/N > 200. Metrics with "stellarPhotRepeatStdev" in their names correspond to `PA1` defined in the [OSS](https://ls.st/oss) as requirement OSS-REQ-0387. Metrics with "stellarPhotRepeatOutlierFraction" correspond to `PF1` (the fraction of outliers exceeding the threshold PA2) from the same requirement, with `PA2` (the outlier threshold) set to 15 mmag by default. The "_ct" metrics simply capture the number of stars that went into the calculation.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_stellarPhotRepeatStdev | 5.502570 | mmag |
-| g_stellarPhotRepeatOutlierFraction | 5.647383 | % |
-| g_ct | 726.0 | ct |
-| r_stellarPhotRepeatStdev | 5.011919 | mmag |
-| r_stellarPhotRepeatOutlierFraction | 6.167401 | % |
-| r_ct | 908.0 | ct |
-| i_stellarPhotRepeatStdev | 5.056592 | mmag |
-| i_stellarPhotRepeatOutlierFraction | 6.779661 | % |
-| i_ct | 944.0 | ct |
-
-metricBundle: **stellarPhotometricResiduals** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/photometricRepeatability.py))
-
-_Docstring:_ Plot mean photometric residuals as a function of the position on the focal plane. First, a set of per-source quality criteria are applied. Second, the individual source measurements are grouped together by object index and the per-group magnitude is computed. The residuals between the individual sources and these magnitudes are then used to construct a plot showing the mean residual as a function of the focal-plane position.
-
-_Notes:_ In addition to producing plots of the residuals as a function of focal plane position, the median, standard deviation ("Stdev"), and the median absolute deviation $\sigma_{MAD}$ ("SigmaMad") are reported for the tract. Because these are residuals about the median, the median residual should be 0 by construction.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_photResidTractSigmaMad | 9.297931 | mmag |
-| g_photResidTractStdev | 73.996488 | mmag |
-| g_photResidTractMedian | 0.000000 | mmag |
-| r_photResidTractSigmaMad | 8.565694 | mmag |
-| r_photResidTractStdev | 66.920415 | mmag |
-| r_photResidTractMedian | 0.000000 | mmag |
-| i_photResidTractSigmaMad | 8.489994 | mmag |
-| i_photResidTractStdev | 65.658013 | mmag |
-| i_photResidTractMedian | 0.000000 | mmag |
 
 
 ### preSourceTableCore_metrics
