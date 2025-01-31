@@ -806,31 +806,43 @@ _dataId used in examples:_
 did_tract = {'tract': 5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument': 'LSSTComCam'}
 ```
 
-metricBundle: **validCmodelFluxMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/numericalValidity.py))
+metricBundle: **validCmodelFluxMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/numericalValidity.py))
 
-_Docstring:_ Calculate the fraction of values in a column that have valid numerical values (i.e., not NaN), and that fall within the specified "reasonable" range for the values.
-
-| metric name | value | units |
-| ---  |--- |--- |
-| g_validFracColumn | 87.698572 | % |
-| g_nanFracColumn | 10.009657 | % |
-| r_validFracColumn | 91.172296 | % |
-| r_nanFracColumn | 6.848321 | % |
-| i_validFracColumn | 88.884015 | % |
-| i_nanFracColumn | 8.870868 | % |
-
-metricBundle: **validPsfFluxMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2024.14/python/lsst/analysis/tools/atools/numericalValidity.py))
-
-_Docstring:_ Calculate the fraction of values in a column that have valid numerical values (i.e., not NaN), and that fall within the specified "reasonable" range for the values.
+_Docstring:_ Calculate the fraction of values in a column that have valid numerical values (i.e., not NaN), and that fall within the specified "reasonable" range for the values. 
 
 | metric name | value | units |
 | ---  |--- |--- |
-| g_validFracColumn | 90.162651 | % |
-| g_nanFracColumn | 6.994101 | % |
-| r_validFracColumn | 93.751672 | % |
-| r_nanFracColumn | 3.717816 | % |
-| i_validFracColumn | 91.044549 | % |
-| i_nanFracColumn | 5.854848 | % |
+| u_validFracColumn | 44.901217 | % |
+| u_nanFracColumn | 42.851855 | % |
+| g_validFracColumn | 90.825567 | % |
+| g_nanFracColumn | 5.225247 | % |
+| r_validFracColumn | 89.916261 | % |
+| r_nanFracColumn | 6.306434 | % |
+| i_validFracColumn | 89.704590 | % |
+| i_nanFracColumn | 5.970174 | % |
+| z_validFracColumn | 86.220004 | % |
+| z_nanFracColumn | 6.772176 | % |
+| y_validFracColumn | 67.222752 | % |
+| y_nanFracColumn | 15.830500 | % |
+
+metricBundle: **validPsfFluxMetric** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/numericalValidity.py))
+
+_Docstring:_ Calculate the fraction of values in a column that have valid numerical values (i.e., not NaN), and that fall within the specified "reasonable" range for the values. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| u_validFracColumn | 46.466084 | % |
+| u_nanFracColumn | 40.227490 | % |
+| g_validFracColumn | 93.893007 | % |
+| g_nanFracColumn | 1.868023 | % |
+| r_validFracColumn | 92.928092 | % |
+| r_nanFracColumn | 2.955407 | % |
+| i_validFracColumn | 92.475233 | % |
+| i_nanFracColumn | 2.573486 | % |
+| z_validFracColumn | 88.955097 | % |
+| z_nanFracColumn | 3.368476 | % |
+| y_validFracColumn | 69.016903 | % |
+| y_nanFracColumn | 12.810026 | % |
 
 
 ### objectTableCore_metrics
