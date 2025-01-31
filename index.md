@@ -224,7 +224,7 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 
 ### Tract-level tasks
 
-tract task table
+<!-- tract task table
 Task (link to pipeline yaml) | datasetType | StorageClass |
 |---   |---   |---   |
 | [analyzeDiaSourceTableTract](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/diaTractQualityCore.yaml)|[diaSourceTableTract_metrics](#diasourcetabletract_metrics)| MetricMeasurementBundle|
@@ -365,9 +365,9 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 ||{ref}`propertymaptract-deepcoadd-psf-size-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-psf-size-map-weighted-mean-pertractpropertymapplot>`| Plot|
 ||{ref}`propertymaptract-deepcoadd-sky-background-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-sky-background-map-weighted-mean-pertractpropertymapplot>`| Plot|
 ||{ref}`propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot>`| Plot|
-|||
+||| -->
 
-<!-- Task (link to pipeline yaml) | datasetType | StorageClass |
+Task (link to pipeline yaml) | datasetType | StorageClass |
 |---   |---   |---   |
 | [analyzeDiaSourceTableTract](https://github.com/lsst/analysis_tools/blob/w.2024.14/pipelines/diaTractQualityCore.yaml)|[diaSourceTableTract_metrics](#diasourcetabletract_metrics)| MetricMeasurementBundle|
 ||{ref}`diasourcetabletract-streakdiasourceplot-diaskyplot <diasourcetabletract-streakdiasourceplot-diaskyplot>`| Plot|
@@ -408,7 +408,7 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-epoch-min-propertymapplot <propertymaptract-healsparsemap-deepcoadd-epoch-min-propertymapplot>`| Plot|
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-epoch-max-propertymapplot <propertymaptract-healsparsemap-deepcoadd-epoch-max-propertymapplot>`| Plot|
 ||{ref}`propertymaptract-healsparsemap-deepcoadd-sky-background-weighted-mean-propertymapplot <propertymaptract-healsparsemap-deepcoadd-sky-background-weighted-mean-propertymapplot>`| Plot|
-||| -->
+|||
 
 
 ## Visit-level metrics
@@ -518,7 +518,7 @@ These quantities are computed to assess depth:
 
 _dataId used in examples:_
 ```
-did_tract = {'tract':9813, 'skymap': 'ops_rehersal_prep_2k_v1', 'band': 'g', 'instrument':'LSSTComCamSim'}
+did_tract = {'tract':5063, 'skymap': 'lsst_cells_v1', 'band': 'g', 'instrument':'LSSTComCam'}
 ```
 
 These metrics are for a set of "matched visits," which is created by taking all objects from the `isolated_star_sources` table in a given tract, then matching all of the `sourceTable` catalogs to accumulate all measurements for each source. These collections can be used for repeatability measurements.
