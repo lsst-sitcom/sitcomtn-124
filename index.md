@@ -32,7 +32,7 @@ The code used to generate the plots and figures for this technote can be found i
 
 ## Finding and accessing data products
 
-In this section we describe the ways we determined which metrics and plots were created by the nightly validation pipeline.
+In this section we describe the ways we determined which metrics and plots were created by the Data Reduction Pipeline (DRP) runs.
 
 ### Which collections to use
 The data reduction campaigns are listed in [the "LSSTComCam Intermittent Cumulative DRP Runs" confluence page](https://rubinobs.atlassian.net/wiki/x/YoCCDQ). On that page we can see the following information for the collection containing the w_2025_04 **intermittent cumulative DRP** reductions:
@@ -168,10 +168,11 @@ Image(image_bytes)
 
 ### Using the plot navigator
 
-The rubin plot navigator can be accessed at [https://usdf-rsp.slac.stanford.edu/plot-navigator/dashboard_gen3](https://usdf-rsp.slac.stanford.edu/plot-navigator/dashboard_gen3) and is described in [DMTN-237](https://dmtn-237.lsst.io/).
+The rubin plot navigator can be accessed at [https://usdf-rsp.slac.stanford.edu/plot-navigator](https://usdf-rsp.slac.stanford.edu/plot-navigator) and is described in [DMTN-237](https://dmtn-237.lsst.io/).
 This interface allows the user to quickly browse plots that are stored in the butler.
-To find/select a plot the drop down menus in the top left are used.
-For example, by selecting the following:
+To find/select first identify a [collection](https://usdf-rsp.slac.stanford.edu/plot-navigator/collection/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556), after clicking the collection you will be givien a list of plots that exist in that collection and can futher select the type of plot you would like to view (e.g. [objectTableCore_wPerpPSFP_ColorColorFitPlot](https://usdf-rsp.slac.stanford.edu/plot-navigator/plot/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556/objectTableCore_wPerpPSFP_ColorColorFitPlot))
+
+<!-- For example, by selecting the following:
 ```
 repo: /repo/embargo
 collection: LSSTComCamSim/runs/nightlyvalidation/20240402/d_2024_03_29/DM-43612
@@ -186,13 +187,15 @@ We can display the plot shown in the screenshot below.
 :name: plot-navigator
 
 Example of using the plot navigator to display the {ref}`matchedVisitCore_g_stellarAstrometricRepeatability1_histPlot <matchedvisitcore-{band}-stellarastrometricrepeatability1-histplot>`.
-```
+``` -->
 
 
 
 ## Nightly validation pipeline
 
 https://github.com/lsst/drp_pipe/blob/main/pipelines/LSSTComCamSim/nightly-validation-ops-rehearsal-3.yaml
+
+The nightly validation pipeline described here was run during operations rehearsal-3.
 
 ### Visit-level tasks
 This table has 3 columns: Task, datasetType, and StorageClass.
