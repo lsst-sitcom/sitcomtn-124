@@ -34,6 +34,8 @@ The code used to generate the plots and figures for this technote can be found i
 
 In this section we describe the ways we determined which metrics and plots were created by the Data Reduction Pipeline (DRP) runs.
 
+For more information on how metrics and plots are created or how to run your own pipeline see the [tutorial](https://pipelines.lsst.io/modules/lsst.analysis.tools/getting-started.html) in the [analysis_tools](https://github.com/lsst/analysis_tools) documentation
+
 ### Which collections to use
 The data reduction campaigns are listed in [the "LSSTComCam Intermittent Cumulative DRP Runs" confluence page](https://rubinobs.atlassian.net/wiki/x/YoCCDQ). On that page we can see the following information for the collection containing the w_2025_04 **intermittent cumulative DRP** reductions:
 
