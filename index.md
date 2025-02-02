@@ -20,7 +20,7 @@ This incudes:
 - [How to find plots in the plot navigator](#using-the-plot-navigator)
 
 Then we list out the tasks in the [Nightly Validation Pipeline](#nightly-validation-pipeline) that generate metrics and plots.
-For each task we link the pipeline yaml that configures the task (tagged to w_2025_02) and examples of the `metricMeasurementBundle`s and `Plot`s created by each task.
+For each task we link the pipeline yaml that configures the task (tagged to w_2025_04) and examples of the `metricMeasurementBundle`s and `Plot`s created by each task.
 This should allow for a quick exploration of the data products produced as a part of this pipeline.
 
 For each `metricBundle` we list an example `dataId` used, the `metricBundle`'s name, its `atools` docstring, any additional notes, and an example result.
@@ -134,7 +134,7 @@ For example, for the `analyzePreSourceTableCore` task there is a configuration f
 
 ### Retrieving plots from the butler
 
-A quick test in a notebook will show that you can not use `butler.get` to retrieve plots from the butler. To retrieve them, you will instead use the `butler.retrieveArtifacts` method. If you know the name of the plot dataset you wish to retrieve, an appropriate dataId, the butler has been initialized with the desired repo and the registry extracted via `registry = butler.registry`, and the collection name assigned to the variable `collection`, you can use:
+A quick test in a notebook will show that you cannot use `butler.get` to retrieve plots from the butler. To retrieve them, you will instead use the `butler.retrieveArtifacts` method. If you know the name of the plot dataset you wish to retrieve, an appropriate dataId, the butler has been initialized with the desired repo and the registry extracted via `registry = butler.registry`, and the collection name assigned to the variable `collection`, you can use:
 
 ```
 plot_name = 'preSourceTableCore_skySourceFlux_HistPlot'
@@ -172,7 +172,7 @@ Image(image_bytes)
 
 The rubin plot navigator can be accessed at [https://usdf-rsp.slac.stanford.edu/plot-navigator](https://usdf-rsp.slac.stanford.edu/plot-navigator) and is described in [DMTN-237](https://dmtn-237.lsst.io/).
 This interface allows the user to quickly browse plots that are stored in the butler.
-To find/select first identify a [collection](https://usdf-rsp.slac.stanford.edu/plot-navigator/collection/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556), after clicking the collection you will be givien a list of plots that exist in that collection and can futher select the type of plot you would like to view (e.g. [objectTableCore_wPerpPSFP_ColorColorFitPlot](https://usdf-rsp.slac.stanford.edu/plot-navigator/plot/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556/objectTableCore_wPerpPSFP_ColorColorFitPlot))
+To find/select first identify a [collection](https://usdf-rsp.slac.stanford.edu/plot-navigator/collection/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556), after clicking the collection you will be givien a list of plots that exist in that collection and can futher select the type of plot you would like to view (e.g. [objectTableCore_wPerpPSFP_ColorColorFitPlot](https://usdf-rsp.slac.stanford.edu/plot-navigator/plot/%2Frepo%2Fmain/LSSTComCam%2Fruns%2FDRP%2FDP1%2Fw_2025_04%2FDM-48556/objectTableCore_wPerpPSFP_ColorColorFitPlot)).
 
 <!-- For example, by selecting the following:
 ```
@@ -197,7 +197,7 @@ Example of using the plot navigator to display the {ref}`matchedVisitCore_g_stel
 
 https://github.com/lsst/drp_pipe/blob/main/pipelines/LSSTComCamSim/nightly-validation-ops-rehearsal-3.yaml
 
-The nightly validation pipeline described here was run during operations rehearsal-3.
+The nightly validation pipeline described here was run during Operations Rehearsal 3.
 
 ### Visit-level tasks
 This table has 3 columns: Task, datasetType, and StorageClass.
@@ -229,148 +229,6 @@ Task (link to pipeline yaml) | datasetType | StorageClass |
 
 ### Tract-level tasks
 
-<!-- tract task table
-Task (link to pipeline yaml) | datasetType | StorageClass |
-|---   |---   |---   |
-| [analyzeDiaSourceTableTract](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/diaTractQualityCore.yaml)|[diaSourceTableTract_metrics](#diasourcetabletract_metrics)| MetricMeasurementBundle|
-||{ref}`diasourcetabletract-streakdiasourceplot-diaskyplot <diasourcetabletract-streakdiasourceplot-diaskyplot>`| Plot|
-|||
-| [analyzeMatchedVisitCore](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/matchedVisitQualityCore.yaml)|[matchedVisitCore_metrics](#matchedvisitcore_metrics)| MetricMeasurementBundle|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-ad1-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-ad1-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-af1-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-af1-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-am1-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability1-{band}-am1-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-ad2-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-ad2-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-af2-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-af2-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-am2-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability2-{band}-am2-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-ad3-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-ad3-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-af3-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-af3-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-am3-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricrepeatability3-{band}-am3-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricselfrepeatabilitydec-{band}-dml2astroerr-dec-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricselfrepeatabilitydec-{band}-dml2astroerr-dec-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarastrometricselfrepeatabilityra-{band}-dml2astroerr-ra-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarastrometricselfrepeatabilityra-{band}-dml2astroerr-ra-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarphotometricrepeatability-{band}-stellarphotrepeatoutlierfraction-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarphotometricrepeatability-{band}-stellarphotrepeatoutlierfraction-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarphotometricrepeatability-{band}-stellarphotrepeatstdev-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarphotometricrepeatability-{band}-stellarphotrepeatstdev-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractmedian-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractmedian-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractsigmamad-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractsigmamad-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractstdev-wholeskyplot <matchedvisitcore-wholesky-wholeskymetric-stellarphotometricresiduals-{band}-photresidtractstdev-wholeskyplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricrepeatability1-histplot <matchedvisitcore-stellarastrometricrepeatability1-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricrepeatability2-histplot <matchedvisitcore-stellarastrometricrepeatability2-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricrepeatability3-histplot <matchedvisitcore-stellarastrometricrepeatability3-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricresidualstddevdec-focalplaneplot <matchedvisitcore-stellarastrometricresidualstddevdec-focalplaneplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricresidualstddevra-focalplaneplot <matchedvisitcore-stellarastrometricresidualstddevra-focalplaneplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricresidualsdec-focalplaneplot <matchedvisitcore-stellarastrometricresidualsdec-focalplaneplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricresidualsra-focalplaneplot <matchedvisitcore-stellarastrometricresidualsra-focalplaneplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricselfrepeatabilitydec-histplot <matchedvisitcore-stellarastrometricselfrepeatabilitydec-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarastrometricselfrepeatabilityra-histplot <matchedvisitcore-stellarastrometricselfrepeatabilityra-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarphotometricrepeatabilitycalib-histplot <matchedvisitcore-stellarphotometricrepeatabilitycalib-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarphotometricrepeatability-histplot <matchedvisitcore-stellarphotometricrepeatability-histplot>`| Plot|
-||{ref}`matchedvisitcore-stellarphotometricresidualscalib-focalplaneplot <matchedvisitcore-stellarphotometricresidualscalib-focalplaneplot>`| Plot|
-||{ref}`matchedvisitcore-stellarphotometricresiduals-focalplaneplot <matchedvisitcore-stellarphotometricresiduals-focalplaneplot>`| Plot|
-|||
-| [validateObjectTableCore](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddColumnValidate.yaml)|[objectTableColumnValidate_metrics](#objecttablecolumnvalidate_metrics)| MetricMeasurementBundle|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists>`| Plot|
-|||
-| [analyzeObjectTableCore](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddQualityCore.yaml)|[objectTableCore_metrics](#objecttablecore_metrics)| MetricMeasurementBundle|
-||{ref}`objecttablecore-xperppsfp-colorcolorfitplot <objecttablecore-xperppsfp-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-yperppsf-colorcolorfitplot <objecttablecore-yperppsf-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-yperpcmodel-colorcolorfitplot <objecttablecore-yperpcmodel-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-wperpcmodel-colorcolorfitplot <objecttablecore-wperpcmodel-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-wperppsfp-colorcolorfitplot <objecttablecore-wperppsfp-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-xperpcmodel-colorcolorfitplot <objecttablecore-xperpcmodel-colorcolorfitplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e1diff-{band}-highsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e1diff-{band}-highsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e1diff-{band}-highsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e1diff-{band}-highsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e2diff-{band}-highsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e2diff-{band}-highsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e2diff-{band}-highsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e2diff-{band}-highsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-highsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-highsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-highsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-highsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendparenttoobig-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendparenttoobig-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendtoomanymasked-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendtoomanymasked-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendtoomanypeaks-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numblendtoomanypeaks-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numskippedblends-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numskippedblends-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numskippedpeaks-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skippeddeblendermetrics-numskippedpeaks-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-meansky-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-meansky-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-mediansky-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-mediansky-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-stdevsky-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-stdevsky-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-wperppsfp-wperp-psfflux-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-wperppsfp-wperp-psfflux-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e1diff-{band}-lowsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e1diff-{band}-lowsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e1diff-{band}-lowsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e1diff-{band}-lowsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e2diff-{band}-lowsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e2diff-{band}-lowsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-e2diff-{band}-lowsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-e2diff-{band}-lowsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-mean-wholeskyplot <objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-mean-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-psfcmodelscatter-{band}-psf-cmodel-diff-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-lowsnstars-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-lowsnstars-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-lowsnstars-sigmamad-wholeskyplot <objecttablecore-wholesky-wholeskymetric-shapesizefractionaldiff-{band}-lowsnstars-sigmamad-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-sigmamadsky-wholeskyplot <objecttablecore-wholesky-wholeskymetric-skyfluxstatisticmetric-{band}-sigmamadsky-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-wholesky-wholeskymetric-wperppsfp-wperp-psfflux-median-wholeskyplot <objecttablecore-wholesky-wholeskymetric-wperppsfp-wperp-psfflux-median-wholeskyplot>`| Plot|
-||{ref}`objecttablecore-cmodelbulgesizevscmodelbulgemag-scatterplotwithtwohists <objecttablecore-cmodelbulgesizevscmodelbulgemag-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-cmodeldisksizevscmodeldiskmag-scatterplotwithtwohists <objecttablecore-cmodeldisksizevscmodeldiskmag-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-coaddinputcount-skyplot <objecttablecore-coaddinputcount-skyplot>`| Plot|
-||{ref}`objecttablecore-e1diff-scatterplotwithtwohists <objecttablecore-e1diff-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-e2diff-scatterplotwithtwohists <objecttablecore-e2diff-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-psfcmodelscatter-scatterplotwithtwohists <objecttablecore-psfcmodelscatter-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-shapesizedetradiusvscmodelmag-scatterplotwithtwohists <objecttablecore-shapesizedetradiusvscmodelmag-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-shapesizedetradiusvspsfmag-scatterplotwithtwohists <objecttablecore-shapesizedetradiusvspsfmag-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-shapesizefractionaldiff-scatterplotwithtwohists <objecttablecore-shapesizefractionaldiff-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttablecore-skyobjectflux-histplot <objecttablecore-skyobjectflux-histplot>`| Plot|
-||{ref}`objecttablecore-skyobjectsky-skyplot <objecttablecore-skyobjectsky-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists>`| Plot|
-|||
-| [refCatObjectTract](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddQualityCore.yaml)|{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists>`| Plot|
-|||
-| [photometricRefCatObjectTract](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddQualityCore.yaml)|{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists>`| Plot|
-|||
-| [analyzeObjectTableExtended](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddQualityExtended.yaml)|{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffdecskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffrascatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot <objecttable-tract-gaia-dr3-20230707-match-astrom-astromdiffraskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfskyplot-skyplot>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltacmodelscatterplot-scatterplotwithtwohists>`| Plot|
-||{ref}`objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists <objecttable-tract-the-monster-20240904-match-photom-targetrefcatdeltapsfscatterplot-scatterplotwithtwohists>`| Plot|
-|||
-| [propertyMapTract](https://github.com/lsst/analysis_tools/blob/w.2025.04/pipelines/coaddQualityCore.yaml#L90-L123)|{ref}`propertymaptract-deepcoadd-dcr-ddec-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-dcr-ddec-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-dcr-dra-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-dcr-dra-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-dcr-e1-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-dcr-e1-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-dcr-e2-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-dcr-e2-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-epoch-map-max-pertractpropertymapplot <propertymaptract-deepcoadd-epoch-map-max-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-epoch-map-mean-pertractpropertymapplot <propertymaptract-deepcoadd-epoch-map-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-epoch-map-min-pertractpropertymapplot <propertymaptract-deepcoadd-epoch-map-min-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-exposure-time-map-sum-pertractpropertymapplot <propertymaptract-deepcoadd-exposure-time-map-sum-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-psf-e1-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-psf-e1-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-psf-e2-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-psf-e2-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-psf-maglim-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-psf-maglim-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-psf-size-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-psf-size-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-sky-background-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-sky-background-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||{ref}`propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot <propertymaptract-deepcoadd-sky-noise-map-weighted-mean-pertractpropertymapplot>`| Plot|
-||| -->
 
 Task (link to pipeline yaml) | datasetType | StorageClass |
 |---   |---   |---   |
@@ -749,6 +607,25 @@ _Docstring:_ Plot mean photometric residuals as a function of the position on th
 | y_photResidTractStdev | 9.141854 | mmag |
 | y_photResidTractMedian | 0.000000 | mmag |
 
+### sourceObjectTable_metrics
+
+_dataId used in examples:_
+```
+did_visit_det = {'visit': 2024120500075, 'skymap': 'lsst_cells_v1', 'instrument': 'LSSTComCam', 'detector': 4}
+```
+
+metricBundle: **astromColorDiffMetrics** ([source](https://github.com/lsst/analysis_tools/blob/w.2025.04/python/lsst/analysis/tools/atools/refCatMatchPlots.py))
+
+_Docstring:_ Calculate the AB1 and ABF1 metrics from the difference between the target and reference catalog coordinates. 
+
+| metric name | value | units |
+| ---  |--- |--- |
+| AB1_RA | 13.946738 | mas |
+| ABF1_RA | 14.849624 | % |
+| AB1_Dec | 8.169414 | mas |
+| ABF1_Dec | 2.067669 | % |
+| AB1_tot | 16.971670 | mas |
+| ABF1_tot | 24.812030 | % |
 
 ### preSourceTableCore_metrics
 
@@ -1194,7 +1071,7 @@ _Docstring:_ No docstring
 | yPerp_psfFlux_sigmaMAD | 8.156364 | mmag |
 | yPerp_psfFlux_median | -0.542668 | mmag |
 
-Note the erroneous "P" at the end of "wPerpPSFP," "xPerpPSFP," and "yPerpPSFP." This is due to a typo in the pipelines code.
+Note the erroneous "P" at the end of "wPerpPSFP" and "xPerpPSFP". This is due to a typo in the pipelines code.
 
 
 ### objectTableExtended_metrics
